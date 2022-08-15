@@ -42,6 +42,12 @@ public class ProfileFragment extends Fragment {
         list.add(new FriendModel(R.drawable.profile));
         list.add(new FriendModel(R.drawable.image1));
         list.add(new FriendModel(R.drawable.image2));
+        list.add(new FriendModel(R.drawable.profile));
+        list.add(new FriendModel(R.drawable.image2));
+        list.add(new FriendModel(R.drawable.image1));
+        list.add(new FriendModel(R.drawable.profile));
+        list.add(new FriendModel(R.drawable.image1));
+        list.add(new FriendModel(R.drawable.image2));
 
         FriendAdapter adapter = new FriendAdapter(list,getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
