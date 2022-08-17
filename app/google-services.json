@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "697106815045",
+    "project_id": "vision-connect-df606",
+    "storage_bucket": "vision-connect-df606.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697106815045:android:1715626becb90a2aba2b2c",
+        "android_client_info": {
+          "package_name": "com.prateek.visionconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697106815045-si6o2ljp2q31309c08irr7jsnvp8pbl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkqY9BqWUPBpYDArwTc_BSrfe5mu1NyVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697106815045-si6o2ljp2q31309c08irr7jsnvp8pbl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

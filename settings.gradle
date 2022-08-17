@@ -11,7 +11,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+
     }
 }
-rootProject.name = "Vision Connect"
 include ':app'
+rootProject.name = "Vision Connect"
+
