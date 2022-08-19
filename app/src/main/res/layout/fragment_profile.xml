@@ -8,44 +8,44 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivCoverPhoto"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_250mdp"
         android:scaleType="centerCrop"
         android:src="@drawable/image2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/ivProfileImage"
         android:layout_width="@dimen/_90mdp"
         android:layout_height="@dimen/_90mdp"
         android:padding="4dp"
         android:src="@drawable/profile"
         app:civ_border_color="@color/white"
         app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@id/imageView3"
-        app:layout_constraintStart_toStartOf="@id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCoverPhoto"
+        app:layout_constraintEnd_toEndOf="@id/ivCoverPhoto"
+        app:layout_constraintStart_toStartOf="@id/ivCoverPhoto"
+        app:layout_constraintTop_toTopOf="@+id/ivCoverPhoto"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/icVerified"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_check"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-        app:layout_constraintEnd_toEndOf="@+id/profile_image"
+        app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage"
+        app:layout_constraintEnd_toEndOf="@+id/ivProfileImage"
         app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="@+id/profile_image"
-        app:layout_constraintTop_toTopOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="@+id/ivProfileImage"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileImage"
         app:layout_constraintVertical_bias="0.9" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -56,17 +56,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/ivCoverPhoto" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvProfession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Android Developer"
         android:textSize="@dimen/_10font_mdp"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="@+id/tvUserName"
+        app:layout_constraintStart_toStartOf="@+id/tvUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
 
     <View
@@ -82,7 +82,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tvProfession" />
 
     <ImageView
         android:id="@+id/addFriend"
@@ -296,5 +296,15 @@
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
          />
+
+    <ImageView
+        android:id="@+id/ivChangeCoverPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ivCoverPhoto"
+        android:layout_marginStart="@dimen/_10mdp"
+        android:layout_marginBottom="@dimen/_10mdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

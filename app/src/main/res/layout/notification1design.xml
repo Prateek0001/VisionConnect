@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/ivProfileImage"
         android:layout_width="@dimen/_50mdp"
         android:layout_height="@dimen/_50mdp"
         android:layout_marginTop="8dp"
@@ -24,10 +24,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/orange_circle"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-        app:layout_constraintEnd_toEndOf="@+id/profile_image"
-        app:layout_constraintStart_toStartOf="@+id/profile_image"
-        app:layout_constraintTop_toTopOf="@+id/profile_image" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage"
+        app:layout_constraintEnd_toEndOf="@+id/ivProfileImage"
+        app:layout_constraintStart_toStartOf="@+id/ivProfileImage"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileImage" />
 
     <TextView
         android:id="@+id/notification"
@@ -38,10 +38,10 @@
         android:text="Sundar Pichai liked your photo"
         android:textColor="@color/black"
         android:textSize="@dimen/_14font_mdp"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
-        app:layout_constraintTop_toTopOf="@+id/profile_image"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileImage"
         app:layout_constraintVertical_bias="0.3" />
 
     <TextView

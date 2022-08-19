@@ -59,7 +59,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.view
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
-            profile = itemView.findViewById(R.id.profile_image);
+            profile = itemView.findViewById(R.id.ivProfileImage);
             postImage = itemView.findViewById(R.id.postImg);
             save = itemView.findViewById(R.id.save);
             name = itemView.findViewById(R.id.userName);
