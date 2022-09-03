@@ -2,7 +2,8 @@ package com.prateek.visionconnect.model;
 
 public class UserModel {
     private String name, profession, email, password;
-    String coverPhoto,profilePhoto;
+    String coverPhoto, profilePhoto, userID;
+    private int followerCount;
 
     public UserModel() {
     }
@@ -12,6 +13,15 @@ public class UserModel {
         this.profession = profession;
         this.email = email;
         this.password = password;
+    }
+
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getProfilePhoto() {
@@ -60,5 +70,13 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getFollowerCount() {
+        return followerCount;
+    }
+
+    public void setFollowerCount(int followerCount) {
+        this.followerCount = followerCount;
     }
 }

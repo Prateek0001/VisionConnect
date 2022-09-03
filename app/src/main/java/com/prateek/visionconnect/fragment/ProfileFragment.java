@@ -24,9 +24,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.prateek.visionconnect.R;
-import com.prateek.visionconnect.adapter.FriendAdapter;
+import com.prateek.visionconnect.adapter.FollowersAdapter;
 import com.prateek.visionconnect.databinding.FragmentProfileBinding;
-import com.prateek.visionconnect.model.FriendModel;
+import com.prateek.visionconnect.model.FollowModel;
 import com.prateek.visionconnect.model.UserModel;
 import com.squareup.picasso.Picasso;
 
@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class ProfileFragment extends Fragment {
 
-    ArrayList<FriendModel> list;
+    ArrayList<FollowModel> list;
     FragmentProfileBinding binding;
     FirebaseAuth mAuth;
     FirebaseStorage storage;
@@ -59,12 +59,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentProfileBinding.inflate(getLayoutInflater(),container,false);
+        binding = FragmentProfileBinding.inflate(getLayoutInflater(), container, false);
 
         database.getReference().child("Users").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     UserModel userModel = snapshot.getValue(UserModel.class);
                     Picasso.get()
                             .load(userModel.getProfilePhoto())
@@ -86,21 +86,30 @@ public class ProfileFragment extends Fragment {
         });
 
         list = new ArrayList<>();
-        list.add(new FriendModel(R.drawable.profile));
-        list.add(new FriendModel(R.drawable.image1));
-        list.add(new FriendModel(R.drawable.image2));
-        list.add(new FriendModel(R.drawable.profile));
-        list.add(new FriendModel(R.drawable.image2));
-        list.add(new FriendModel(R.drawable.image1));
-        list.add(new FriendModel(R.drawable.profile));
-        list.add(new FriendModel(R.drawable.image1));
-        list.add(new FriendModel(R.drawable.image2));
 
-        FriendAdapter adapter = new FriendAdapter(list,getContext());
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+
+        FollowersAdapter adapter = new FollowersAdapter(list, getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         binding.friendsRV.setLayoutManager(layoutManager);
         binding.friendsRV.setAdapter(adapter);
 
+        database.getReference().child("Users")
+                .child(mAuth.getUid())
+                .child("followers").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            FollowModel follow = dataSnapshot.getValue(FollowModel.class);
+                            list.add(follow);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
         binding.ivChangeCoverPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +117,7 @@ public class ProfileFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
-                startActivityForResult(intent,101);
+                startActivityForResult(intent, 101);
             }
         });
 
@@ -118,11 +127,9 @@ public class ProfileFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
-                startActivityForResult(intent,102);
+                startActivityForResult(intent, 102);
             }
         });
-
-
 
 
         return binding.getRoot();
@@ -131,8 +138,8 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 101){
-            if(data.getData() != null){
+        if (requestCode == 101) {
+            if (data.getData() != null) {
                 Uri uri = data.getData();
                 binding.ivCoverPhoto.setImageURI(uri);
 
@@ -151,8 +158,8 @@ public class ProfileFragment extends Fragment {
                 });
             }
 
-        }else if(requestCode == 102){
-            if(data.getData() != null){
+        } else if (requestCode == 102) {
+            if (data.getData() != null) {
                 Uri uri = data.getData();
                 binding.ivProfileImage.setImageURI(uri);
 

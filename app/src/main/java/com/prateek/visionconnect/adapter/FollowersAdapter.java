@@ -10,15 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.prateek.visionconnect.R;
-import com.prateek.visionconnect.model.FriendModel;
+import com.prateek.visionconnect.databinding.FriendRvSampleBinding;
+import com.prateek.visionconnect.model.FollowModel;
 
 import java.util.ArrayList;
 
-public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.viewHolder> {
-    ArrayList<FriendModel> list ;
+public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.viewHolder> {
+    ArrayList<FollowModel> list;
     Context context;
 
-    public FriendAdapter(ArrayList<FriendModel> list, Context context) {
+    public FollowersAdapter(ArrayList<FollowModel> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -26,14 +27,14 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.viewHolder
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.friend_rv_sample,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.friend_rv_sample, parent, false);
         return new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        FriendModel model = list.get(position);
-        holder.profile.setImageResource(model.getProfile());
+        FollowModel model = list.get(position);
+
     }
 
     @Override
@@ -42,12 +43,12 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.viewHolder
     }
 
 
-    public class viewHolder extends RecyclerView.ViewHolder{
-        ImageView profile;
+    public class viewHolder extends RecyclerView.ViewHolder {
+
+        FriendRvSampleBinding binding;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-
-            profile = itemView.findViewById(R.id.ivProfileImage);
+            binding = FriendRvSampleBinding.bind(itemView);
         }
     }
 }
