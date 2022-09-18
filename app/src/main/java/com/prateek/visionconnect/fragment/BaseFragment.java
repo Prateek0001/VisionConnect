@@ -1,7 +1,6 @@
 package com.prateek.visionconnect.fragment;
 
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;

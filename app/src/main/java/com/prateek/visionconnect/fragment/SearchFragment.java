@@ -56,12 +56,12 @@ public class SearchFragment extends Fragment {
         binding.usersRV.setLayoutManager(layoutManager);
         binding.usersRV.setAdapter(adapter);
 
-        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+        database.getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     UserModel userModel = dataSnapshot.getValue(UserModel.class);
-                    userModel.setUserID(snapshot.getKey());
+                    userModel.setUserID(dataSnapshot.getKey());
                     list.add(userModel);
                 }
                 adapter.notifyDataSetChanged();

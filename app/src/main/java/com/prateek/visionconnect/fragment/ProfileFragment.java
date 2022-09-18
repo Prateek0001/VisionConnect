@@ -24,6 +24,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.prateek.visionconnect.R;
+import com.prateek.visionconnect.activity.LoginActivity;
 import com.prateek.visionconnect.adapter.FollowersAdapter;
 import com.prateek.visionconnect.databinding.FragmentProfileBinding;
 import com.prateek.visionconnect.model.FollowModel;
@@ -33,7 +34,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends BaseFragment {
 
     ArrayList<FollowModel> list;
     FragmentProfileBinding binding;
@@ -53,7 +54,6 @@ public class ProfileFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
-
     }
 
     @Override
@@ -128,6 +128,15 @@ public class ProfileFragment extends Fragment {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(intent, 102);
+            }
+        });
+
+        binding.ivLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Intent intent = new Intent(mActivity, LoginActivity.class);
+                startActivity(intent);
             }
         });
 

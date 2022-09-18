@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.View;
 
 
-
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
@@ -35,7 +34,6 @@ public class Util {
 
     public boolean isAvailableResolver(Context ctx, Intent intent) {
         boolean result = false;
-        //# Issue #: 1069 - Failure delivering result ResultInfo{who=null, request=4000, result=-1, data=Intent { act=com.musicplayer.playermusic.action_camera }} to activity {com.musicplayer.playermusic/com.musicplayer.playermusic.activities.NowPlayingActivity}: java.lang.NullPointerException: Attempt to read from field 'android.content.pm.ApplicationInfo android.content.pm.ComponentInfo.applicationInfo' on a null object reference
         try {
             final PackageManager mgr = ctx.getPackageManager();
             if (mgr != null) {
@@ -111,7 +109,7 @@ public class Util {
         return "";
     }
 
-    public  String localToUTC(String timeStamp, SimpleDateFormat to) {
+    public String localToUTC(String timeStamp, SimpleDateFormat to) {
         if (timeStamp != null && !timeStamp.isEmpty()) {
             try {
                 Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
