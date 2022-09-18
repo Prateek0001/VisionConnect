@@ -59,7 +59,7 @@ public class ProfileFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentProfileBinding.inflate(getLayoutInflater(), container, false);
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
 
         // Fetch user data from database
         database.getReference().child("Users").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {

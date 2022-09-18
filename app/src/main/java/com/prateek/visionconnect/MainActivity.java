@@ -14,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.prateek.visionconnect.databinding.ActivityMainBinding;
 import com.prateek.visionconnect.fragment.AddFragment;
+import com.prateek.visionconnect.fragment.AddPostFragment;
 import com.prateek.visionconnect.fragment.HomeFragment;
 import com.prateek.visionconnect.fragment.NotificationFragment;
 import com.prateek.visionconnect.fragment.ProfileFragment;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.add:
                     binding.toolbar.setVisibility(View.GONE);
-                    selectedFragment = new AddFragment();
+                    selectedFragment = new AddPostFragment();
                     break;
                 case R.id.search:
                     binding.toolbar.setVisibility(View.GONE);

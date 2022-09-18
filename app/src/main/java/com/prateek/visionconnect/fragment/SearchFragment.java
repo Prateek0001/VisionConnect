@@ -49,9 +49,9 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentSearchBinding.inflate(inflater,container,false);
+        binding = FragmentSearchBinding.inflate(inflater, container, false);
 
-        UserAdapter adapter = new UserAdapter(getContext(),list);
+        UserAdapter adapter = new UserAdapter(getContext(), list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.usersRV.setLayoutManager(layoutManager);
         binding.usersRV.setAdapter(adapter);
@@ -59,10 +59,13 @@ public class SearchFragment extends Fragment {
         database.getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     UserModel userModel = dataSnapshot.getValue(UserModel.class);
                     userModel.setUserID(dataSnapshot.getKey());
-                    list.add(userModel);
+                    // Exclude current user from user list
+                    if (!dataSnapshot.getKey().equals(FirebaseAuth.getInstance().getUid())) {
+                        list.add(userModel);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -72,8 +75,6 @@ public class SearchFragment extends Fragment {
 
             }
         });
-
-
 
 
         return binding.getRoot();
