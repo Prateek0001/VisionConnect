@@ -61,21 +61,23 @@ public class ProfileFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(getLayoutInflater(), container, false);
 
+        // Fetch user data from database
         database.getReference().child("Users").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    UserModel userModel = snapshot.getValue(UserModel.class);
+                    UserModel user = snapshot.getValue(UserModel.class);
                     Picasso.get()
-                            .load(userModel.getProfilePhoto())
+                            .load(user.getProfilePhoto())
                             .placeholder(R.drawable.placeholder)
                             .into(binding.ivProfileImage);
                     Picasso.get()
-                            .load(userModel.getCoverPhoto())
+                            .load(user.getCoverPhoto())
                             .placeholder(R.drawable.placeholder)
                             .into(binding.ivCoverPhoto);
-                    binding.tvUserName.setText(userModel.getName());
-                    binding.tvProfession.setText(userModel.getProfession());
+                    binding.tvUserName.setText(user.getName());
+                    binding.tvProfession.setText(user.getProfession());
+                    binding.followers.setText(user.getFollowerCount()+"");
                 }
             }
 
@@ -98,6 +100,7 @@ public class ProfileFragment extends BaseFragment {
                 .child("followers").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                             FollowModel follow = dataSnapshot.getValue(FollowModel.class);
                             list.add(follow);
