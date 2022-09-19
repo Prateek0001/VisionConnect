@@ -10,16 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.prateek.visionconnect.R;
-import com.prateek.visionconnect.model.DashboardModel;
+import com.prateek.visionconnect.model.PostModel;
 
 import java.util.ArrayList;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.viewHolder>{
 
-    ArrayList<DashboardModel> list;
+    ArrayList<PostModel> list;
     Context context;
 
-    public DashboardAdapter(ArrayList<DashboardModel> list, Context context) {
+    public DashboardAdapter(ArrayList<PostModel> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -35,16 +35,16 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.view
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
-        DashboardModel model = list.get(position);
+        PostModel model = list.get(position);
 
-        holder.profile.setImageResource(model.getProfile());
-        holder.postImage.setImageResource(model.getPostImg());
-        holder.name.setText(model.getName());
-        holder.about.setText(model.getAbout());
-        holder.like.setText(model.getLike());
-        holder.comment.setText(model.getComment());
-        holder.share.setText(model.getShare());
-        holder.name.setText(model.getName());
+//        holder.profile.setImageResource(model.getProfile());
+//        holder.postImage.setImageResource(model.getPostImg());
+//        holder.name.setText(model.getName());
+//        holder.about.setText(model.getAbout());
+//        holder.like.setText(model.getLike());
+//        holder.comment.setText(model.getComment());
+//        holder.share.setText(model.getShare());
+//        holder.name.setText(model.getName());
 
     }
 

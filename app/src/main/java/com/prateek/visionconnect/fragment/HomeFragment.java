@@ -15,7 +15,7 @@ import com.prateek.visionconnect.adapter.StoryAdapter;
 
 
 import com.prateek.visionconnect.databinding.FragmentHomeBinding;
-import com.prateek.visionconnect.model.DashboardModel;
+import com.prateek.visionconnect.model.PostModel;
 import com.prateek.visionconnect.model.StoryModel;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class HomeFragment extends Fragment {
 
     FragmentHomeBinding binding;
     ArrayList<StoryModel> list;
-    ArrayList<DashboardModel> dashboardList;
+    ArrayList<PostModel> dashboardList;
 
 
     public HomeFragment() {
@@ -58,16 +58,16 @@ public class HomeFragment extends Fragment {
 
         //Dashboard Rv
         dashboardList = new ArrayList<>();
-        dashboardList.add(new DashboardModel(R.drawable.profile,R.drawable.image1,R.drawable.ic_bookmark,"Prateek","Android Developer",
-                "457","134","897"));
-        dashboardList.add(new DashboardModel(R.drawable.profile,R.drawable.image2,R.drawable.ic_bookmark,"Harry","Traveller",
-                "788","273","797"));
-        dashboardList.add(new DashboardModel(R.drawable.profile,R.drawable.image1,R.drawable.ic_bookmark,"Potter","Traveller",
-                "9793","14","3792"));
-        dashboardList.add(new DashboardModel(R.drawable.profile,R.drawable.image2,R.drawable.ic_bookmark,"Prateek","Traveller",
-                "33","3223","3442"));
-        dashboardList.add(new DashboardModel(R.drawable.profile,R.drawable.image1,R.drawable.ic_bookmark,"Prateek","Traveller",
-                "3972","323","323"));
+//        dashboardList.add(new PostModel(R.drawable.profile,R.drawable.image1,R.drawable.ic_bookmark,"Prateek","Android Developer",
+//                "457","134","897"));
+//        dashboardList.add(new PostModel(R.drawable.profile,R.drawable.image2,R.drawable.ic_bookmark,"Harry","Traveller",
+//                "788","273","797"));
+//        dashboardList.add(new PostModel(R.drawable.profile,R.drawable.image1,R.drawable.ic_bookmark,"Potter","Traveller",
+//                "9793","14","3792"));
+//        dashboardList.add(new PostModel(R.drawable.profile,R.drawable.image2,R.drawable.ic_bookmark,"Prateek","Traveller",
+//                "33","3223","3442"));
+//        dashboardList.add(new PostModel(R.drawable.profile,R.drawable.image1,R.drawable.ic_bookmark,"Prateek","Traveller",
+//                "3972","323","323"));
 
         DashboardAdapter dashboardAdapter = new DashboardAdapter(dashboardList,getContext());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
